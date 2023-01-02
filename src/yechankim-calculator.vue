@@ -32,6 +32,12 @@ export default /*#__PURE__*/{
       this.message.action = 'decremented by';
       this.message.amount = amount;
     },
+    multiply (arg) {
+      const amount = (typeof arg !== 'number') ? 1 : arg;
+      this.counter *= amount;
+      this.message.action = 'multiplied by';
+      this.message.amout = amount;
+    },
     reset() {
       this.counter = this.initCounter;
       this.message.action = 'reset';
@@ -55,6 +61,9 @@ export default /*#__PURE__*/{
     </button>
     <button @click="decrement(5)">
       Click -5
+    </button>
+    <button @click="multiply(2)">
+      Click *2
     </button>
     <button @click="reset">
       Reset
